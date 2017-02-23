@@ -1,0 +1,131 @@
+<div class="row" ng-controller="JobsCtrl">
+
+<div class="large-10 columns">
+    <div class="alert-box" ng-show="msg" data-alert> {{ msg }} </div>
+    
+    <div class="row" ng-show="jobShow">
+        <div class="panel">
+            <ul>
+                <li> {{ job.date }} </li>
+                <li> {{ job.title }} </li>
+                <li> {{ job.company }} </li>
+                <li> {{ job.contact }} </li>
+            </ul>
+        </div>
+    </div>
+    
+    
+    
+    
+<form ng-show="addFormShow" ng-submit="addFormSubmit()">
+    
+<h3>Add job</h3>
+<div class="row">
+    <div class="large-6 columns">
+        <label>Date:
+        <input type="text" ng-model="date" required />
+        </label>
+    </div>
+    <div class="large-6 columns">
+        <label>Job title:
+        <input type="text" ng-model="title" required />
+        </label>
+    </div>
+</div>
+    
+<div class="row">
+    <div class="large-6 columns">
+        <label>Company:
+        <input type="text" ng-model="company" required />
+        </label>
+    </div>
+    <div class="large-6 columns">
+        <label>Contacts:
+        <input type="text" ng-model="contact" required />
+        </label>
+    </div>
+</div>
+    
+<div class="row">
+    <div class="large-12 columns">
+        <input type="submit" value="Add Job" class="button" />
+    </div>
+</div>
+</form>    
+    
+    
+    
+    
+    
+    
+<form ng-show="editFormShow" ng-submit="editFormSubmit()">
+<h3>Edit job</h3>
+<div class="row">
+    <div class="large-6 columns">
+        <label>Date:
+        <input type="text" ng-model="date" required />
+        </label>
+    </div>
+    <div class="large-6 columns">
+        <label>Job title:
+        <input type="text" ng-model="title" required />
+        </label>
+    </div>
+</div>
+    
+<div class="row">
+    <div class="large-6 columns">
+        <label>Company:
+        <input type="text" ng-model="company" required />
+        </label>
+    </div>
+    <div class="large-6 columns">
+        <label>Contacts:
+        <input type="text" ng-model="contact" required />
+        </label>
+    </div>
+</div>
+    
+<div class="row">
+    <div class="large-12 columns">
+        <input type="submit" value="Edit Job" class="button" />
+    </div>
+</div>
+</form>    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    <h3>My applied jobs (3)</h3>
+    <table>
+        <thead>
+            <tr>
+                <th width="10%;">Date</th>
+                <th width="20%;">Job Title</th>
+                <th width="30%;">Company</th>
+                <th width="20%;">Contacts</th>
+                <th width="20%;">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="job in jobs">
+                <td><a ng-click="showJob(job)"> {{ job.date }} </a></th>
+                <td> {{ job.title }} </th>
+                <td> {{ job.company }} </th>
+                <td> {{ job.contact }} </th>
+                <td><a class="button tiny" ng-click="showEditForm(job)">Edit</a>
+                    <a class="button tiny alert" ng-click="removeJob(job)">Delete</a></th>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div class="large-2 columns">
+    <a class="button large" ng-click="showAddForm()" ng-hide="addFormShow">+</a>
+    <a class="button large" ng-click="showAddForm()" ng-show="addFormShow">-</a>
+</div>
+</div>
